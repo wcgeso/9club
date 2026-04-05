@@ -126,7 +126,7 @@
       position: relative;
       z-index: 2;
       text-align: center;
-      max-width: 820px;
+      max-width: 960px;
       padding: 0 28px;
     }
     .hero-badge {
@@ -143,11 +143,12 @@
     }
     .hero-title {
       font-family: 'Noto Serif TC', serif;
-      font-size: clamp(1.9rem, 5vw, 3.4rem);
+      font-size: clamp(1.6rem, 3.8vw, 2.7rem);
       font-weight: 700;
       line-height: 1.42;
       color: var(--text-cream);
       margin-bottom: 24px;
+      text-align: center;
       text-shadow: 0 2px 24px rgba(0,0,0,0.5);
     }
     .hero-title em {
@@ -654,18 +655,27 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: transparent;
-      color: var(--gold);
+      background: linear-gradient(135deg, rgba(201,168,76,0.18), rgba(154,117,32,0.22));
+      color: var(--gold-light);
       font-size: 1rem;
-      font-weight: 500;
+      font-weight: 700;
       padding: 16px 38px;
       border-radius: 4px;
-      border: 1px solid var(--gold);
+      border: 1.5px solid var(--gold);
       text-decoration: none;
       letter-spacing: 0.06em;
-      transition: background 0.25s;
+      box-shadow: 0 0 0 0 rgba(201,168,76,0.4);
+      animation: glowPulse 2.4s ease-in-out infinite;
+      transition: background 0.25s, transform 0.25s;
     }
-    .btn-ghost:hover { background: rgba(201,168,76,0.1); }
+    .btn-ghost:hover {
+      background: rgba(201,168,76,0.28);
+      transform: translateY(-2px);
+    }
+    @keyframes glowPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(201,168,76,0.4); }
+      50%       { box-shadow: 0 0 18px 6px rgba(201,168,76,0.2); }
+    }
     .cta-notes {
       margin-top: 48px;
       color: var(--text-muted);
@@ -675,6 +685,94 @@
     .cta-notes span {
       color: var(--gold-light);
       font-family: 'Noto Serif TC', serif;
+    }
+
+    /* ── TRIAL FORM ── */
+    .trial { background: var(--navy); }
+    .trial .section-eyebrow::before { display: none; }
+    .trial-inner {
+      max-width: 620px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .trial-form {
+      margin-top: 44px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      text-align: left;
+    }
+    .trial-field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .trial-label {
+      font-size: 0.85rem;
+      color: var(--gold-light);
+      font-family: 'Noto Serif TC', serif;
+      letter-spacing: 0.06em;
+    }
+    .trial-input {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(201,168,76,0.3);
+      border-radius: 8px;
+      padding: 14px 18px;
+      font-size: 0.97rem;
+      color: var(--text-cream);
+      font-family: 'Noto Sans TC', sans-serif;
+      outline: none;
+      transition: border-color 0.25s, background 0.25s;
+      width: 100%;
+    }
+    .trial-input:focus {
+      border-color: var(--gold);
+      background: rgba(201,168,76,0.06);
+    }
+    .trial-input::placeholder { color: var(--text-muted); }
+    .trial-input[type="date"]::-webkit-calendar-picker-indicator {
+      filter: invert(0.7) sepia(1) saturate(2) hue-rotate(5deg);
+      cursor: pointer;
+    }
+    .trial-submit {
+      margin-top: 8px;
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: var(--navy);
+      font-size: 1rem;
+      font-weight: 700;
+      font-family: 'Noto Serif TC', serif;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      letter-spacing: 0.08em;
+      box-shadow: 0 4px 24px var(--gold-glow);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .trial-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 36px rgba(201,168,76,0.5);
+    }
+    .trial-note {
+      margin-top: 16px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      text-align: center;
+      line-height: 1.8;
+    }
+    .trial-success {
+      display: none;
+      margin-top: 28px;
+      padding: 24px 28px;
+      background: rgba(201,168,76,0.08);
+      border: 1px solid rgba(201,168,76,0.4);
+      border-radius: 10px;
+      text-align: center;
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.05rem;
+      color: var(--gold-light);
+      line-height: 1.9;
     }
 
     /* ── FOOTER ── */
@@ -712,6 +810,77 @@
       font-weight: 700 !important;
       border-left: 2px solid var(--gold);
       padding-left: 14px;
+    }
+
+    /* ── ABOUT FLOW ── */
+    .about-pain {
+      font-size: 1.02rem !important;
+      color: var(--text-cream) !important;
+      line-height: 1.85;
+      border-left: 3px solid rgba(201,168,76,0.5);
+      padding-left: 14px;
+      margin-bottom: 18px;
+    }
+    .about-flow {
+      margin-top: 32px;
+      background: rgba(201,168,76,0.05);
+      border: 1px solid rgba(201,168,76,0.22);
+      border-radius: 14px;
+      padding: 24px 28px 20px;
+    }
+    .about-flow-row {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .flow-field-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+    }
+    .flow-field {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(201,168,76,0.3);
+      border-radius: 8px;
+      padding: 11px 18px;
+      font-size: 0.95rem;
+      color: var(--text-cream);
+      font-family: 'Noto Sans TC', sans-serif;
+      letter-spacing: 0.05em;
+    }
+    .about-flow-arrow {
+      font-size: 2.2rem;
+      color: var(--gold);
+      flex-shrink: 0;
+      line-height: 1;
+    }
+    .about-flow-output { flex: 1.2; }
+    .flow-result {
+      background: linear-gradient(135deg, rgba(201,168,76,0.18), rgba(201,168,76,0.06));
+      border: 1px solid rgba(201,168,76,0.45);
+      border-radius: 10px;
+      padding: 18px 16px;
+      font-size: 1.1rem;
+      color: var(--gold-light);
+      font-weight: 700;
+      font-family: 'Noto Serif TC', serif;
+      text-align: center;
+      line-height: 1.75;
+    }
+    .flow-result span {
+      color: var(--text-cream);
+      font-weight: 400;
+      font-size: 0.92rem;
+      display: block;
+    }
+    .about-flow-caption {
+      margin-top: 14px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      text-align: center;
+      letter-spacing: 0.03em;
+      margin-bottom: 0 !important;
     }
 
     /* ── TRANSFORM SECTION ── */
@@ -837,21 +1006,322 @@
 
     /* ── MISSION QUOTE ── */
     .mission-quote {
-      margin: 28px 0 16px;
+      margin: 28px auto 16px;
       padding: 24px 32px;
       background: rgba(201, 168, 76, 0.06);
       border: 1px solid var(--border-strong);
       border-left: 4px solid var(--gold);
       border-radius: 0 8px 8px 0;
       font-family: 'Noto Serif TC', serif;
-      font-size: 1.08rem;
-      font-weight: 600;
-      color: var(--text-cream);
+      font-size: 1.12rem;
+      font-weight: 700;
+      font-style: italic;
+      color: var(--gold-light);
       line-height: 2;
-      letter-spacing: 0.03em;
+      letter-spacing: 0.05em;
       max-width: 720px;
+    }
+
+    /* ── PHIL METHODS ── */
+    .phil-methods {
+      margin-top: 52px;
+      max-width: 800px;
       margin-left: auto;
       margin-right: auto;
+    }
+    .phil-methods-intro {
+      text-align: center;
+      font-size: 1.05rem;
+      color: var(--text-cream);
+      line-height: 1.9;
+      margin-bottom: 32px;
+    }
+    .phil-method-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .phil-method-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      padding: 18px 24px;
+      background: rgba(201,168,76,0.04);
+      border: 1px solid rgba(201,168,76,0.18);
+      border-radius: 10px;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .phil-method-item:hover {
+      border-color: rgba(201,168,76,0.45);
+      background: rgba(201,168,76,0.08);
+    }
+    .phil-method-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+      line-height: 1.4;
+    }
+    .phil-method-label {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.97rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      margin-bottom: 4px;
+    }
+    .phil-method-text {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+    .phil-closing {
+      margin-top: 24px;
+      text-align: center;
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      padding: 20px 28px;
+      background: rgba(201,168,76,0.07);
+      border: 1px solid rgba(201,168,76,0.3);
+      border-radius: 8px;
+    }
+
+    /* ── PAIN POINT ── */
+    .pain { background: var(--navy-mid); }
+    .pain-header { text-align: center; margin-bottom: 56px; }
+    .pain-header .section-eyebrow { justify-content: center; }
+    .pain-header .section-eyebrow::before { display: none; }
+    .pain-header .section-eyebrow::after { content: ''; display: block; width: 36px; height: 1px; background: var(--gold); }
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    .pain-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-gold);
+      border-top: 3px solid var(--gold);
+      border-radius: 0 0 8px 8px;
+      padding: 36px 28px;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .pain-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+    .pain-icon { font-size: 2rem; margin-bottom: 16px; display: block; }
+    .pain-title { font-family: 'Noto Serif TC', serif; font-size: 1rem; font-weight: 700; color: var(--text-cream); margin-bottom: 10px; }
+    .pain-desc { font-size: 0.88rem; color: var(--text-muted); line-height: 1.9; }
+    .pain-footer {
+      text-align: center;
+      margin-top: 52px;
+      padding: 28px 32px;
+      background: rgba(201,168,76,0.06);
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+    }
+    .pain-quote {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      line-height: 1.9;
+    }
+    .pain-quote::before { content: '「'; }
+    .pain-quote::after  { content: '」'; }
+
+    /* ── COMPARE BADGE ── */
+    .compare-badge {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      padding: 4px 12px;
+      border-radius: 100px;
+      margin-bottom: 6px;
+    }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials { background: var(--navy-mid); }
+    .testimonials-header {
+      text-align: center;
+      margin-bottom: 52px;
+    }
+    .testimonials-header .section-eyebrow { justify-content: center; }
+    .testimonials-header .section-eyebrow::before { display: none; }
+    .testimonials-header .section-eyebrow::after {
+      content: '';
+      display: block;
+      width: 36px;
+      height: 1px;
+      background: var(--gold);
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .testimonial-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-gold);
+      border-radius: 10px;
+      padding: 28px 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .testimonial-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-4px);
+    }
+    .testimonial-quote-icon {
+      color: var(--gold);
+      font-size: 2.4rem;
+      line-height: 0.8;
+      font-family: Georgia, serif;
+      font-weight: 700;
+    }
+    .testimonial-text {
+      font-size: 0.97rem;
+      color: var(--text-cream);
+      line-height: 1.9;
+      flex: 1;
+      font-family: 'Noto Serif TC', serif;
+    }
+    .testimonial-footer {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border-gold);
+    }
+    .testimonial-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+    .testimonial-author {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── FAQ ── */
+    .faq { background: var(--navy); }
+    .faq-header {
+      text-align: center;
+      margin-bottom: 52px;
+    }
+    .faq-header .section-eyebrow { justify-content: center; }
+    .faq-header .section-eyebrow::before { display: none; }
+    .faq-header .section-eyebrow::after {
+      content: '';
+      display: block;
+      width: 36px;
+      height: 1px;
+      background: var(--gold);
+    }
+    .faq-list {
+      max-width: 780px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .faq-item {
+      border: 1px solid var(--border-gold);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+    .faq-item.open { border-color: var(--gold); }
+    .faq-question {
+      width: 100%;
+      background: var(--card-bg);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 20px 26px;
+      text-align: left;
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-cream);
+      letter-spacing: 0.03em;
+      transition: background 0.2s;
+    }
+    .faq-question:hover { background: rgba(201,168,76,0.06); }
+    .faq-icon {
+      font-size: 1.3rem;
+      color: var(--gold);
+      flex-shrink: 0;
+      transition: transform 0.3s;
+      line-height: 1;
+    }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+      background: rgba(201,168,76,0.03);
+    }
+    .faq-item.open .faq-answer { max-height: 300px; }
+    .faq-answer-inner {
+      padding: 0 26px 20px;
+      font-size: 0.93rem;
+      color: var(--text-muted);
+      line-height: 2;
+    }
+
+    /* ── STICKY MOBILE CTA ── */
+    .sticky-cta-bar {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 999;
+      background: rgba(9, 15, 24, 0.97);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid var(--border-gold);
+      padding: 10px 14px;
+      gap: 10px;
+    }
+    .sticky-btn-primary {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: var(--navy);
+      font-size: 0.88rem;
+      font-weight: 700;
+      padding: 12px 10px;
+      border-radius: 6px;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      font-family: 'Noto Serif TC', serif;
+    }
+    .sticky-btn-ghost {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      color: var(--gold-light);
+      font-size: 0.88rem;
+      font-weight: 700;
+      padding: 12px 10px;
+      border-radius: 6px;
+      border: 1.5px solid var(--gold);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      font-family: 'Noto Serif TC', serif;
     }
 
     /* ── RESPONSIVE ── */
@@ -863,6 +1333,7 @@
       }
     }
     @media (max-width: 880px) {
+      .pain-grid { grid-template-columns: 1fr; }
       .navbar { padding: 14px 24px; }
       .navbar-links { display: none; }
       .about-grid { grid-template-columns: 1fr; gap: 44px; }
@@ -878,6 +1349,10 @@
       .transform-card { border-right: none; border-bottom: 1px solid var(--border-gold); }
       .transform-card:last-child { border-bottom: none; }
       .phil-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr 1fr; }
+      .sticky-cta-bar { display: flex; }
+      body { padding-bottom: 66px; }
+      .faq-list { max-width: 100%; }
     }
     @media (max-width: 600px) {
       section { padding: 72px 0; }
@@ -886,6 +1361,7 @@
       .outcomes-grid { grid-template-columns: 1fr; }
       .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 170px; }
       .hero-title { font-size: 1.75rem; }
+      .testimonials-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -895,10 +1371,11 @@
   <nav class="navbar" id="navbar">
     <a href="#" class="navbar-logo">科技<span>九宮</span>命理</a>
     <ul class="navbar-links">
-      <li><a href="#about">關於課程</a></li>
+      <li><a href="#about">關於九宮</a></li>
       <li><a href="#course">課程大綱</a></li>
       <li><a href="#who">適合對象</a></li>
       <li><a href="#gallery">課程現場</a></li>
+      <li><a href="#trial" style="color: var(--gold-light); font-weight: 500;">免費試算</a></li>
       <li><a href="https://www.surveycake.com/s/eneXa" target="_blank" rel="noopener noreferrer" class="btn-nav">立即報名</a></li>
     </ul>
   </nav>
@@ -910,18 +1387,53 @@
     <div class="hero-content">
       <div class="hero-badge">科技九宮命理</div>
       <h1 class="hero-title">
-        如果命理說的是邏輯，<br>
-        你還會覺得它是<em>玄學</em>嗎？
+        為什麼努力不一定有結果？<br>
+        因為你還沒看懂自己的<em>人生使用說明書</em>
       </h1>
       <p class="hero-sub">
-        認識自己，是一切決策的起點<br>
-        科技九宮命理，用科學與邏輯幫你找到答案
+        告別盲目決策與玄學迷思，科技九宮命理透過科學與邏輯<br>幫你拆解天賦格局，讓每一次選擇都有數據支撐
       </p>
-      <a href="#cta" class="hero-cta">立即了解課程 →</a>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+        <a href="#cta" class="hero-cta">立即了解課程 →</a>
+        <a href="#trial" class="btn-ghost">免費試算個人命盤報告 ✨</a>
+      </div>
     </div>
     <div class="hero-scroll">
       <span>向下探索</span>
       <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- PAIN POINT -->
+  <section class="pain" id="pain">
+    <div class="container">
+      <div class="pain-header fade-in">
+        <div class="section-eyebrow">你的真實處境</div>
+        <h2 class="section-title">你是否也正處於這些<em>困惑</em>中？</h2>
+      </div>
+      <div class="pain-grid">
+        <div class="pain-card fade-in d1">
+          <span class="pain-icon">🔍</span>
+          <div class="pain-title">努力卻沒結果</div>
+          <div class="pain-desc">明明很有才華，卻總是在不適合的領域消耗自己，感覺怎麼努力都事倍功半？</div>
+        </div>
+        <div class="pain-card fade-in d2">
+          <span class="pain-icon">⚖️</span>
+          <div class="pain-title">決策時猶豫不決</div>
+          <div class="pain-desc">重大選擇當前，只能靠直覺或問神，心裡卻很不踏實，怕走了一步錯棋影響全局？</div>
+        </div>
+        <div class="pain-card fade-in d3">
+          <span class="pain-icon">🤝</span>
+          <div class="pain-title">識人不明</div>
+          <div class="pain-desc">不論找員工還是找伴侶，總是看錯人，導致成本高昂，一次次重頭再來？</div>
+        </div>
+      </div>
+      <div class="pain-footer fade-in">
+        <p class="pain-quote">不是你能力不夠，而是你一直在不適合的地圖裡找終點。</p>
+      </div>
+      <div class="fade-in" style="text-align:center;margin-top:40px;">
+        <a href="#trial" class="btn-ghost" style="font-size:0.95rem;padding:13px 38px;display:inline-flex;">想知道你的命盤怎麼說？免費試算看看 →</a>
+      </div>
     </div>
   </section>
 
@@ -934,11 +1446,24 @@
           <h2 class="section-title">千年傳承，<br><em>結合現代科學</em>重新解讀</h2>
           <div class="gold-line"></div>
           <div class="about-text">
-            <p>在過去，我們談論命運，往往徘徊在兩個極端之間：
-            <p> 一端是「命中注定」的無力感，另一端是「人定勝天」的盲目性。</p>
-            <p>傳統的命理工具雖然蘊含古老智慧，但其複雜的推算與模糊的詮釋，常常讓我們止步於「知其然，而不知其所以然」，難以轉化為實際的行動方案。</p>
-            <p class="about-highlight">現在，這個探索的舊時代，正式結束了。</p>
-            <p>我們結合千年東方智慧與現代科技程式輔助，將複雜的命理學理轉化為清晰易懂的結構。只需輸入<strong>「姓名」</strong>與<strong>「生日」</strong>，立即獲得屬於你的完整命盤與運程分析。</p>
+            <p class="about-pain">傳統命理艱澀難懂，複雜的推算、古文術語、模糊的詮釋，讓多數人止步於門外，根本無從轉化為實際行動。</p>
+            <p>科技九宮，結合千年傳統命理智慧與現代<strong>科技程式輔助</strong>，將複雜推算全部交給系統——你只需專注在「解讀」與「應用」。</p>
+          </div>
+          <div class="about-flow fade-in d1">
+            <div class="about-flow-row">
+              <div class="flow-field-wrap">
+                <div class="flow-field">👤&ensp;姓名</div>
+                <div class="flow-field">🎂&ensp;西元生日</div>
+              </div>
+              <div class="about-flow-arrow">→</div>
+              <div class="about-flow-output">
+                <div class="flow-result">
+                  完整命盤
+                  <span>運程分析</span>
+                </div>
+              </div>
+            </div>
+            <p class="about-flow-caption">只需兩個資訊，立即獲得屬於你的完整命盤與運程分析</p>
           </div>
         </div>
         <div class="about-img-wrap fade-in d2">
@@ -964,7 +1489,7 @@
             <span class="t-to">到「解讀」</span>
           </div>
           <div class="transform-title">精力完全釋放</div>
-          <div class="transform-desc">你無需投入數年時間學習繁雜的學理。程式為你承擔所有命理推算，讓你的精力完全專注於理解命盤的深刻涵義，並將其轉化為有效的行動策略。</div>
+          <div class="transform-desc">別再花數年死背艱澀古文。程式協助推算，讓你把 100% 的精力花在「如何運用」與「精準行動」。</div>
         </div>
         <div class="transform-card fade-in d2">
           <div class="transform-arrow">
@@ -973,7 +1498,7 @@
             <span class="t-to">到「精準」</span>
           </div>
           <div class="transform-title">數據客觀可驗證</div>
-          <div class="transform-desc">系統確保推算結果百分百準確一致，消除所有人為計算錯誤與主觀偏差，讓你的每一個決策都立足於可靠無誤的數據基礎之上。</div>
+          <div class="transform-desc">不再被算命師的個人情緒或恐嚇嚇到。數據導向的客觀結果，讓你理性佈局，看見真實。</div>
         </div>
         <div class="transform-card fade-in d3">
           <div class="transform-arrow">
@@ -982,7 +1507,7 @@
             <span class="t-to">到「主動」</span>
           </div>
           <div class="transform-title">掌握人生主動權</div>
-          <div class="transform-desc">當你能快速、清晰地洞見自己的能量格局與未來趨勢，便掌握了前所未有的主動權，為自己的人生路徑進行精準規劃、動態調整與持續優化。</div>
+          <div class="transform-desc">從被動「等運到」，轉為主動「造環境」。掌握流年節奏，在對的時間做對的事，倍增成功率。</div>
         </div>
       </div>
     </div>
@@ -1033,9 +1558,8 @@
           <div class="section-eyebrow">核心理念</div>
           <h2 class="section-title">知命・改運・創造環境</h2>
           <blockquote class="mission-quote">
-            科技九宮，致力於解決命理艱澀難懂的障礙；結合傳統命理與科學邏輯，讓每個人更認識自己，創造自己的人生結果。
+            科技九宮，致力於解決命理艱澀難懂的障礙；<br>結合傳統命理與現代科學，讓每個人更認識自己，創造人生結果。
           </blockquote>
-          <p class="section-desc">九宮命理的核心並非宿命論，而是透過精準分析自身狀態，學會如何有效地「操作」與引導自己的人生。</p>
         </div>
         <div class="phil-grid">
           <div class="phil-card fade-in d1">
@@ -1057,9 +1581,33 @@
             <div class="phil-desc">主動規劃人生藍圖。用全新的視角探索自我與未來，實現自我賦能，不再被動等待，而是主動創造。</div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+        <div class="phil-methods fade-in">
+          <p class="phil-methods-intro">科技九宮的核心並非宿命論，而是透過精準解讀個人命盤，讓你掌握人生主動權。</p>
+          <div class="phil-method-list">
+            <div class="phil-method-item">
+              <span class="phil-method-icon">🔥</span>
+              <div>
+                <div class="phil-method-label">放大天賦優勢</div>
+                <div class="phil-method-text">找到你最自然的發力點，讓努力事半功倍。</div>
+              </div>
+            </div>
+            <div class="phil-method-item">
+              <span class="phil-method-icon">🛡️</span>
+              <div>
+                <div class="phil-method-label">修正自我缺點</div>
+                <div class="phil-method-text">有意識地避開性格盲點，減少人生內耗。</div>
+              </div>
+            </div>
+            <div class="phil-method-item">
+              <span class="phil-method-icon">⏱️</span>
+              <div>
+                <div class="phil-method-label">搭配時機運勢</div>
+                <div class="phil-method-text">在對的時間點順勢而為，精準佈局。</div>
+              </div>
+            </div>
+          </div>
+          <div class="phil-closing">只要掌握這套操作邏輯，就能創造屬於自己的人生巔峰。</div>
+        </div>
 
   <!-- COMPARE -->
   <section class="compare" id="compare">
@@ -1074,19 +1622,19 @@
             <tr>
               <th></th>
               <th>傳統命理</th>
-              <th>科技九宮命理 ✦</th>
+              <th><div class="compare-badge">現代人的最佳選擇 ✦</div><br>科技九宮命理</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>學習難度</td>
               <td>艱澀、門檻高</td>
-              <td>系統化、有邏輯可循</td>
+              <td>白話易懂、有邏輯可循</td>
             </tr>
             <tr>
               <td>解讀方式</td>
               <td>依賴老師詮釋</td>
-              <td>有計算依據，客觀可驗證</td>
+              <td>程式輔助，推算客觀</td>
             </tr>
             <tr>
               <td>應用場景</td>
@@ -1109,8 +1657,8 @@
     <div class="container">
       <div class="fade-in">
         <div class="section-eyebrow">課程大綱</div>
-        <h2 class="section-title">《科技九宮命理 × 基礎使用者班》</h2>
-        <p class="section-desc">一套為現代人設計的命理入門系統，讓你從零開始，建立完整的自我命格圖。</p>
+        <h2 class="section-title">《科技九宮命理》</h2>
+        <p class="section-desc" style="white-space: nowrap; overflow: auto;">一套為現代人設計的命理入門系統，讓你從零開始，建立完整的自我命格圖。</p>
       </div>
       <div class="course-grid">
         <div class="module fade-in d1" data-num="01">
@@ -1156,29 +1704,29 @@
     <div class="container">
       <div class="fade-in">
         <div class="section-eyebrow">適合對象</div>
-        <h2 class="section-title">這門課適合你嗎？</h2>
-        <p class="section-desc">如果你是以下任何一種人，答案是肯定的。</p>
+        <h2 class="section-title">哪些人適合學習九宮？</h2>
+        <p class="section-desc">本課程不需具備命理知識，即可循序漸進學習。</p>
       </div>
       <div class="who-grid">
         <div class="who-card fade-in d1">
           <div class="who-icon">🚀</div>
           <div>
             <div class="who-role">創業者 / 中小企業主</div>
-            <div class="who-desc">想更清楚自己的決策模式，做出更好的判斷與選擇</div>
+            <div class="who-desc">釐清自己的領導特質，在商戰中做出最具勝算的判斷。</div>
           </div>
         </div>
         <div class="who-card fade-in d2">
           <div class="who-icon">🎯</div>
           <div>
             <div class="who-role">業務人員</div>
-            <div class="who-desc">想了解自己的優勢，找到最省力的成交節奏</div>
+            <div class="who-desc">掌握客戶天賦，用對方聽得懂的邏輯說話，極速成交。</div>
           </div>
         </div>
         <div class="who-card fade-in d3">
           <div class="who-icon">👥</div>
           <div>
             <div class="who-role">HR / 管理職</div>
-            <div class="who-desc">想提升識人能力，更精準地理解人的特質與潛力</div>
+            <div class="who-desc">3 分鐘看穿面試者特質，把對的人放在對的位置，降低離職率。</div>
           </div>
         </div>
         <div class="who-card fade-in d4">
@@ -1228,6 +1776,66 @@
     </div>
   </section>
 
+  <!-- TESTIMONIALS -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="testimonials-header fade-in">
+        <div class="section-eyebrow">學員真實回饋</div>
+        <h2 class="section-title">他們學完之後這樣說</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card fade-in d1">
+          <div class="testimonial-quote-icon">&ldquo;</div>
+          <div class="testimonial-text">感恩老師用科技的方式來讓我理解古老智慧</div>
+          <div class="testimonial-footer">
+            <div class="testimonial-dot"></div>
+            <div class="testimonial-author">學員・基礎班</div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-in d2">
+          <div class="testimonial-quote-icon">&ldquo;</div>
+          <div class="testimonial-text">更方便幫朋友解讀，分享給身邊的人也變得很簡單</div>
+          <div class="testimonial-footer">
+            <div class="testimonial-dot"></div>
+            <div class="testimonial-author">學員・基礎班</div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-in d3">
+          <div class="testimonial-quote-icon">&ldquo;</div>
+          <div class="testimonial-text">可以不用使用太艱深的內容，就能去了解自己命運</div>
+          <div class="testimonial-footer">
+            <div class="testimonial-dot"></div>
+            <div class="testimonial-author">學員・基礎班</div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-in d1">
+          <div class="testimonial-quote-icon">&ldquo;</div>
+          <div class="testimonial-text">了解自身命宮，但不是認命——這個概念讓我重新看待自己</div>
+          <div class="testimonial-footer">
+            <div class="testimonial-dot"></div>
+            <div class="testimonial-author">學員・基礎班</div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-in d2">
+          <div class="testimonial-quote-icon">&ldquo;</div>
+          <div class="testimonial-text">更了解自己的命格，知道自己的優勢在哪裡</div>
+          <div class="testimonial-footer">
+            <div class="testimonial-dot"></div>
+            <div class="testimonial-author">學員・基礎班</div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-in d3">
+          <div class="testimonial-quote-icon">&ldquo;</div>
+          <div class="testimonial-text">非常酷！透過程式系統學習，第一次覺得命理很簡單</div>
+          <div class="testimonial-footer">
+            <div class="testimonial-dot"></div>
+            <div class="testimonial-author">學員・基礎班</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- OUTCOMES -->
   <section class="outcomes" id="outcomes">
     <div class="container">
@@ -1254,6 +1862,10 @@
           <div class="outcome-text">把命理知識應用在日常決策與人際溝通中</div>
         </div>
       </div>
+      <div class="fade-in" style="text-align:center;margin-top:52px;">
+        <p style="font-size:0.95rem;color:var(--text-muted);margin-bottom:20px;">準備好開始了嗎？</p>
+        <a href="https://www.surveycake.com/s/eneXa" target="_blank" rel="noopener noreferrer" class="btn-primary" style="font-size:1rem;">立即報名基礎班 →</a>
+      </div>
     </div>
   </section>
 
@@ -1269,11 +1881,97 @@
         <p class="cta-sub">立即報名基礎班，開啟屬於你的自我探索之旅</p>
         <div class="cta-btns">
           <a href="https://www.surveycake.com/s/eneXa" target="_blank" rel="noopener noreferrer" class="btn-primary">立即報名基礎班 →</a>
-          <a href="#" class="btn-ghost">免費試算命格</a>
+          <a href="#trial" class="btn-ghost">免費試算個人命盤報告 ✨</a>
         </div>
         <div class="cta-notes">
-          📌 掃碼報名 / 私訊 <span>「基礎班」</span> 了解詳情<br>
-          📌 免費試算你的九宮命格，私訊 <span>「試算」</span>
+          <span>✦ 每梯次名額有限，額滿為止</span>　｜　<span>✦ 無需命理基礎，從零開始</span>　｜　<span>✦ 報名後由專人聯繫確認上課時間</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRIAL FORM -->
+  <section class="trial" id="trial">
+    <div class="container">
+      <div class="trial-inner fade-in">
+        <div class="section-eyebrow" style="justify-content:center;"><span style="display:block;width:36px;height:1px;background:var(--gold);"></span>免費試算<span style="display:block;width:36px;height:1px;background:var(--gold);"></span></div>
+        <h2 class="section-title">立即試算你的<em>專屬命盤</em></h2>
+        <p class="section-desc" style="max-width:100%;text-align:center;margin:0 auto;">填寫以下資訊，我們將在 <strong style="color:var(--gold-light);">7 個工作天內</strong>完成試算，並寄送你的<strong style="color:var(--gold-light);">專屬命盤分析報告</strong>至電子信箱。</p>
+        <form class="trial-form" id="trialForm" action="https://formspree.io/f/xgoppggz" method="POST">
+          <div class="trial-field">
+            <label class="trial-label" for="tf-name">姓名　<span style="font-family:'Noto Sans TC',sans-serif;font-size:0.78rem;font-weight:400;color:var(--text-muted);letter-spacing:0.02em;">以實歲 9 歲（含）前本名為準</span></label>
+            <input class="trial-input" id="tf-name" name="姓名" type="text" placeholder="請輸入您的姓名" required>
+          </div>
+          <div class="trial-field">
+            <label class="trial-label" for="tf-birth">西元生日</label>
+            <input class="trial-input" id="tf-birth" name="西元生日" type="date" required>
+          </div>
+          <div class="trial-field">
+            <label class="trial-label" for="tf-email">電子信箱</label>
+            <input class="trial-input" id="tf-email" name="電子信箱" type="email" placeholder="example@email.com" required>
+          </div>
+          <button type="submit" class="trial-submit">送出申請 →</button>
+        </form>
+        <div class="trial-success" id="trialSuccess">
+          ✦ 申請已送出！<br>我們將盡快試算你的命盤並以電子信箱回覆。
+        </div>
+        <p class="trial-note">📌 資料僅用於命盤試算，不會外洩或轉作他用</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="faq-header fade-in">
+        <div class="section-eyebrow">常見問題</div>
+        <h2 class="section-title">你可能想知道的事</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item fade-in d1">
+          <button class="faq-question" aria-expanded="false">
+            我完全沒有命理基礎，可以學嗎？
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">完全可以。本課程是專為零基礎學員設計的入門系統，從最基礎的概念開始，搭配程式工具輔助推算，不需要死背古文或複雜公式。</div>
+          </div>
+        </div>
+        <div class="faq-item fade-in d2">
+          <button class="faq-question" aria-expanded="false">
+            課程是線上還是實體上課？
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">報名成功後，專人會與你確認上課方式與時間，我們提供彈性安排以符合你的需求。</div>
+          </div>
+        </div>
+        <div class="faq-item fade-in d3">
+          <button class="faq-question" aria-expanded="false">
+            免費試算命盤跟報名課程有什麼不同？
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">免費試算是讓你初步體驗命盤解讀的樣貌，由老師為你產出一份基礎分析報告。報名課程則是系統性學習如何自己解讀命盤、幫助他人，並掌握流年運勢的完整能力。</div>
+          </div>
+        </div>
+        <div class="faq-item fade-in d1">
+          <button class="faq-question" aria-expanded="false">
+            這套命理系統跟市面上的八字、紫微有何不同？
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">科技九宮命理以九宮數理為核心，搭配現代程式系統輔助推算。相較於八字或紫微，學習門檻更低、邏輯更直觀，且強調「應用」而非「算命」，幫助你主動做出更好的決策。</div>
+          </div>
+        </div>
+        <div class="faq-item fade-in d2">
+          <button class="faq-question" aria-expanded="false">
+            報名後多久可以開始上課？
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">報名完成後，我們的專人會在 3 個工作天內與你聯繫，確認開課時間與細節安排。</div>
+          </div>
         </div>
       </div>
     </div>
@@ -1281,7 +1979,7 @@
 
   <!-- FOOTER -->
   <footer>
-    <p>© 2026 科技九宮命理　｜　用邏輯解讀命理，用命理指引人生</p>
+    <p>Copyright © 2026 科技九宮命理. All Rights Reserved.　｜　運用現代程式，解鎖古老智慧，掌握個人運勢</p>
   </footer>
 
   <script>
@@ -1296,11 +1994,63 @@
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
+    // Trial form AJAX submit
+    const trialForm = document.getElementById('trialForm');
+    const trialSuccess = document.getElementById('trialSuccess');
+    if (trialForm) {
+      trialForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn = trialForm.querySelector('.trial-submit');
+        btn.textContent = '送出中…';
+        btn.disabled = true;
+        try {
+          const res = await fetch(trialForm.action, {
+            method: 'POST',
+            body: new FormData(trialForm),
+            headers: { 'Accept': 'application/json' }
+          });
+          if (res.ok) {
+            trialForm.style.display = 'none';
+            trialSuccess.style.display = 'block';
+          } else {
+            btn.textContent = '送出失敗，請重試';
+            btn.disabled = false;
+          }
+        } catch (_) {
+          btn.textContent = '網路錯誤，請重試';
+          btn.disabled = false;
+        }
+      });
+    }
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(el => {
+          el.classList.remove('open');
+          el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
     // Navbar on scroll
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
       navbar.classList.toggle('scrolled', window.scrollY > 60);
     }, { passive: true });
   </script>
+
+  <!-- STICKY MOBILE CTA BAR -->
+  <div class="sticky-cta-bar" id="stickyCta">
+    <a href="#trial" class="sticky-btn-ghost">免費試算命盤</a>
+    <a href="https://www.surveycake.com/s/eneXa" target="_blank" rel="noopener noreferrer" class="sticky-btn-primary">立即報名課程 →</a>
+  </div>
+
 </body>
 </html>
