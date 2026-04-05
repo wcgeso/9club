@@ -91,6 +91,23 @@
       background: var(--gold-light) !important;
       transform: translateY(-1px);
     }
+    .btn-nav-trial {
+      color: var(--gold-light) !important;
+      font-weight: 700 !important;
+      font-size: 0.88rem;
+      padding: 7px 18px !important;
+      border-radius: 3px;
+      border: 1.5px solid rgba(201,168,76,0.6) !important;
+      background: rgba(201,168,76,0.08) !important;
+      letter-spacing: 0.04em;
+      animation: glowPulse 2.4s ease-in-out infinite;
+      transition: background 0.2s, border-color 0.2s !important;
+    }
+    .btn-nav-trial:hover {
+      color: var(--gold-light) !important;
+      background: rgba(201,168,76,0.18) !important;
+      border-color: var(--gold) !important;
+    }
 
     /* ── HERO ── */
     .hero {
@@ -1374,8 +1391,8 @@
       <li><a href="#about">關於九宮</a></li>
       <li><a href="#course">課程大綱</a></li>
       <li><a href="#who">適合對象</a></li>
-      <li><a href="#gallery">課程現場</a></li>
-      <li><a href="#trial" style="color: var(--gold-light); font-weight: 500;">免費試算</a></li>
+      <li><a href="#faq">常見問題</a></li>
+      <li><a href="#trial" class="btn-nav-trial">✨ 免費試算命盤</a></li>
       <li><a href="https://www.surveycake.com/s/eneXa" target="_blank" rel="noopener noreferrer" class="btn-nav">立即報名</a></li>
     </ul>
   </nav>
@@ -1385,7 +1402,7 @@
     <div class="hero-bg"></div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <div class="hero-badge">科技九宮命理</div>
+      <div class="hero-badge">已協助 200+ 位學員掌握人生主動權</div>
       <h1 class="hero-title">
         為什麼努力不一定有結果？<br>
         因為你還沒看懂自己的<em>人生使用說明書</em>
@@ -1394,7 +1411,7 @@
         告別盲目決策與玄學迷思，科技九宮命理透過科學與邏輯<br>幫你拆解天賦格局，讓每一次選擇都有數據支撐
       </p>
       <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-        <a href="#cta" class="hero-cta">立即了解課程 →</a>
+        <a href="#course" class="hero-cta">立即了解課程 →</a>
         <a href="#trial" class="btn-ghost">免費試算個人命盤報告 ✨</a>
       </div>
     </div>
@@ -1473,46 +1490,6 @@
     </div>
   </section>
 
-  <!-- TRANSFORM -->
-  <section class="transform-section">
-    <div class="container">
-      <div class="transform-header fade-in">
-        <div class="section-eyebrow">認知模式的革命</div>
-        <h2 class="section-title">從此，你的學習重心<em>徹底轉變</em></h2>
-        <p class="section-desc">傳統智慧 × 程式輔助——系統協助所有命理推算，你的精力將完全釋放到更高價值的事情上。</p>
-      </div>
-      <div class="transform-grid">
-        <div class="transform-card fade-in d1">
-          <div class="transform-arrow">
-            <span class="t-from">從「計算」</span>
-            <span class="t-icon">→</span>
-            <span class="t-to">到「解讀」</span>
-          </div>
-          <div class="transform-title">精力完全釋放</div>
-          <div class="transform-desc">別再花數年死背艱澀古文。程式協助推算，讓你把 100% 的精力花在「如何運用」與「精準行動」。</div>
-        </div>
-        <div class="transform-card fade-in d2">
-          <div class="transform-arrow">
-            <span class="t-from">從「模糊」</span>
-            <span class="t-icon">→</span>
-            <span class="t-to">到「精準」</span>
-          </div>
-          <div class="transform-title">數據客觀可驗證</div>
-          <div class="transform-desc">不再被算命師的個人情緒或恐嚇嚇到。數據導向的客觀結果，讓你理性佈局，看見真實。</div>
-        </div>
-        <div class="transform-card fade-in d3">
-          <div class="transform-arrow">
-            <span class="t-from">從「被動」</span>
-            <span class="t-icon">→</span>
-            <span class="t-to">到「主動」</span>
-          </div>
-          <div class="transform-title">掌握人生主動權</div>
-          <div class="transform-desc">從被動「等運到」，轉為主動「造環境」。掌握流年節奏，在對的時間做對的事，倍增成功率。</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- FEATURES -->
   <section class="features" id="features">
     <div class="container">
@@ -1549,65 +1526,6 @@
       </div>
     </div>
   </section>
-
-  <!-- PHILOSOPHY -->
-  <section class="philosophy">
-    <div class="container">
-      <div class="philosophy-inner">
-        <div class="phil-header fade-in">
-          <div class="section-eyebrow">核心理念</div>
-          <h2 class="section-title">知命・改運・創造環境</h2>
-          <blockquote class="mission-quote">
-            科技九宮，致力於解決命理艱澀難懂的障礙；<br>結合傳統命理與現代科學，讓每個人更認識自己，創造人生結果。
-          </blockquote>
-        </div>
-        <div class="phil-grid">
-          <div class="phil-card fade-in d1">
-            <span class="phil-kanji">知命</span>
-            <span class="phil-sub">KNOW YOUR DESTINY</span>
-            <div class="phil-divider"></div>
-            <div class="phil-desc">透徹了解自身的命運軌跡。透過精準的命盤分析，清晰認識自己的天生優勢、潛在盲點與能量格局。</div>
-          </div>
-          <div class="phil-card fade-in d2">
-            <span class="phil-kanji">改運</span>
-            <span class="phil-sub">CHANGE YOUR FORTUNE</span>
-            <div class="phil-divider"></div>
-            <div class="phil-desc">掌握改變運勢的方法。學會如何有效地「操作」與引導自己的人生，在對的時間做出對的選擇。</div>
-          </div>
-          <div class="phil-card fade-in d3">
-            <span class="phil-kanji">創造</span>
-            <span class="phil-sub">CREATE YOUR ENVIRONMENT</span>
-            <div class="phil-divider"></div>
-            <div class="phil-desc">主動規劃人生藍圖。用全新的視角探索自我與未來，實現自我賦能，不再被動等待，而是主動創造。</div>
-          </div>
-        </div>
-        <div class="phil-methods fade-in">
-          <p class="phil-methods-intro">科技九宮的核心並非宿命論，而是透過精準解讀個人命盤，讓你掌握人生主動權。</p>
-          <div class="phil-method-list">
-            <div class="phil-method-item">
-              <span class="phil-method-icon">🔥</span>
-              <div>
-                <div class="phil-method-label">放大天賦優勢</div>
-                <div class="phil-method-text">找到你最自然的發力點，讓努力事半功倍。</div>
-              </div>
-            </div>
-            <div class="phil-method-item">
-              <span class="phil-method-icon">🛡️</span>
-              <div>
-                <div class="phil-method-label">修正自我缺點</div>
-                <div class="phil-method-text">有意識地避開性格盲點，減少人生內耗。</div>
-              </div>
-            </div>
-            <div class="phil-method-item">
-              <span class="phil-method-icon">⏱️</span>
-              <div>
-                <div class="phil-method-label">搭配時機運勢</div>
-                <div class="phil-method-text">在對的時間點順勢而為，精準佈局。</div>
-              </div>
-            </div>
-          </div>
-          <div class="phil-closing">只要掌握這套操作邏輯，就能創造屬於自己的人生巔峰。</div>
-        </div>
 
   <!-- COMPARE -->
   <section class="compare" id="compare">
@@ -1869,34 +1787,14 @@
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="cta-section" id="cta">
-    <div class="cta-glow"></div>
-    <div class="container">
-      <div class="cta-inner fade-in">
-        <div class="cta-eyebrow"><span></span>立即行動<span></span></div>
-        <h2 class="cta-title">
-          掌握人生的主動權，<br>從認識自己開始。
-        </h2>
-        <p class="cta-sub">立即報名基礎班，開啟屬於你的自我探索之旅</p>
-        <div class="cta-btns">
-          <a href="https://www.surveycake.com/s/eneXa" target="_blank" rel="noopener noreferrer" class="btn-primary">立即報名基礎班 →</a>
-          <a href="#trial" class="btn-ghost">免費試算個人命盤報告 ✨</a>
-        </div>
-        <div class="cta-notes">
-          <span>✦ 每梯次名額有限，額滿為止</span>　｜　<span>✦ 無需命理基礎，從零開始</span>　｜　<span>✦ 報名後由專人聯繫確認上課時間</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- TRIAL FORM -->
   <section class="trial" id="trial">
     <div class="container">
       <div class="trial-inner fade-in">
         <div class="section-eyebrow" style="justify-content:center;"><span style="display:block;width:36px;height:1px;background:var(--gold);"></span>免費試算<span style="display:block;width:36px;height:1px;background:var(--gold);"></span></div>
         <h2 class="section-title">立即試算你的<em>專屬命盤</em></h2>
-        <p class="section-desc" style="max-width:100%;text-align:center;margin:0 auto;">填寫以下資訊，我們將在 <strong style="color:var(--gold-light);">7 個工作天內</strong>完成試算，並寄送你的<strong style="color:var(--gold-light);">專屬命盤分析報告</strong>至電子信箱。</p>
+        <p style="font-size:0.82rem;color:var(--text-muted);text-align:center;margin:10px 0 4px;letter-spacing:0.04em;">✦ 每梯次名額有限，額滿為止　｜　✦ 無需命理基礎　｜　✦ 報名後由專人確認上課時間</p>
+        <p class="section-desc" style="max-width:100%;text-align:center;margin:16px auto 0;">填寫以下資訊，我們將在 <strong style="color:var(--gold-light);">7 個工作天內</strong>完成試算，並寄送你的<strong style="color:var(--gold-light);">專屬命盤分析報告</strong>至電子信箱。</p>
         <form class="trial-form" id="trialForm" action="https://formspree.io/f/xgoppggz" method="POST">
           <div class="trial-field">
             <label class="trial-label" for="tf-name">姓名　<span style="font-family:'Noto Sans TC',sans-serif;font-size:0.78rem;font-weight:400;color:var(--text-muted);letter-spacing:0.02em;">以實歲 9 歲（含）前本名為準</span></label>
@@ -1913,7 +1811,8 @@
           <button type="submit" class="trial-submit">送出申請 →</button>
         </form>
         <div class="trial-success" id="trialSuccess">
-          ✦ 申請已送出！<br>我們將盡快試算你的命盤並以電子信箱回覆。
+          ✦ 申請已送出！<br>我們將在 7 個工作天內完成試算，並以電子信箱寄送你的專屬命盤分析報告。<br><br>
+          <a href="https://www.surveycake.com/s/eneXa" target="_blank" rel="noopener noreferrer" class="btn-primary" style="font-size:0.95rem;padding:13px 32px;margin-top:8px;display:inline-flex;">想自己學會解讀命盤？立即報名課程 →</a>
         </div>
         <p class="trial-note">📌 資料僅用於命盤試算，不會外洩或轉作他用</p>
       </div>
@@ -1943,7 +1842,7 @@
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            <div class="faq-answer-inner">報名成功後，專人會與你確認上課方式與時間，我們提供彈性安排以符合你的需求。</div>
+            <div class="faq-answer-inner">目前皆以實體課程為主，詳細課程時間請點擊報名表查看。</div>
           </div>
         </div>
         <div class="faq-item fade-in d3">
@@ -1952,7 +1851,7 @@
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            <div class="faq-answer-inner">免費試算是讓你初步體驗命盤解讀的樣貌，由老師為你產出一份基礎分析報告。報名課程則是系統性學習如何自己解讀命盤、幫助他人，並掌握流年運勢的完整能力。</div>
+            <div class="faq-answer-inner">免費試算是讓你初步體驗命盤解讀的樣貌，科技九宮團隊將為你產出一份基礎分析報告。報名課程則是系統性學習如何自己解讀命盤、幫助他人，並掌握流年運勢的完整能力。</div>
           </div>
         </div>
         <div class="faq-item fade-in d1">
@@ -1961,16 +1860,16 @@
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            <div class="faq-answer-inner">科技九宮命理以九宮數理為核心，搭配現代程式系統輔助推算。相較於八字或紫微，學習門檻更低、邏輯更直觀，且強調「應用」而非「算命」，幫助你主動做出更好的決策。</div>
+            <div class="faq-answer-inner">科技九宮命理以九宮學理為核心，搭配現代程式系統輔助推算。相較於八字或紫微，學習門檻更低、邏輯更直觀，且強調「應用」而非「算命」，幫助你主動做出更好的決策。</div>
           </div>
         </div>
         <div class="faq-item fade-in d2">
           <button class="faq-question" aria-expanded="false">
-            報名後多久可以開始上課？
+            報名並開始上課之後，學習有問題該如何發問？
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            <div class="faq-answer-inner">報名完成後，我們的專人會在 3 個工作天內與你聯繫，確認開課時間與細節安排。</div>
+            <div class="faq-answer-inner">科技九宮成立學員專屬的討論交流社群，群內有老師及助教協助，課程有不清楚的地方，可隨時在社群內發問，讓同學們有一個課後學習討論的地方。</div>
           </div>
         </div>
       </div>
@@ -1979,6 +1878,7 @@
 
   <!-- FOOTER -->
   <footer>
+    <p style="margin-bottom:10px;">有任何問題？歡迎透過 <a href="https://line.me" style="color:var(--gold-light);text-decoration:none;" target="_blank" rel="noopener noreferrer">LINE 官方帳號</a> 與我們聯繫</p>
     <p>Copyright © 2026 科技九宮命理. All Rights Reserved.　｜　運用現代程式，解鎖古老智慧，掌握個人運勢</p>
   </footer>
 
