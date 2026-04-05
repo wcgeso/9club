@@ -68,7 +68,7 @@
     .navbar-links {
       display: flex;
       align-items: center;
-      gap: 36px;
+      gap: 28px;
       list-style: none;
     }
     .navbar-links a {
@@ -107,6 +107,16 @@
       color: var(--gold-light) !important;
       background: rgba(201,168,76,0.18) !important;
       border-color: var(--gold) !important;
+    }
+    /* Separator before action buttons */
+    .nav-sep {
+      display: flex;
+      align-items: center;
+      height: 18px;
+      width: 1px;
+      background: rgba(201,168,76,0.25);
+      margin: 0 4px;
+      flex-shrink: 0;
     }
 
     /* ── HERO ── */
@@ -1327,20 +1337,20 @@
     }
     /* Navbar LINE link */
     .btn-nav-line {
-      color: #06C755 !important;
+      color: var(--navy) !important;
       font-weight: 700 !important;
-      font-size: 0.88rem;
-      padding: 7px 14px !important;
+      font-size: 0.85rem;
+      padding: 7px 15px !important;
       border-radius: 3px;
-      border: 1.5px solid rgba(6,199,85,0.5) !important;
-      background: rgba(6,199,85,0.06) !important;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark)) !important;
       letter-spacing: 0.04em;
-      transition: background 0.2s, border-color 0.2s !important;
+      transition: background 0.2s, transform 0.2s, opacity 0.2s !important;
+      white-space: nowrap;
     }
     .btn-nav-line:hover {
-      color: #06C755 !important;
-      background: rgba(6,199,85,0.14) !important;
-      border-color: #06C755 !important;
+      color: var(--navy) !important;
+      opacity: 0.88;
+      transform: translateY(-1px);
     }
 
     /* ── STICKY MOBILE CTA ── */
@@ -1441,9 +1451,10 @@
       <li><a href="#course">課程大綱</a></li>
       <li><a href="#who">適合對象</a></li>
       <li><a href="#faq">常見問題</a></li>
+      <li class="nav-sep" aria-hidden="true" style="margin-left:auto;"></li>
       <li><a href="#trial" class="btn-nav-trial">✨ 免費試算命盤</a></li>
-      <li><a href="https://line.me/R/ti/p/@618solmt" target="_blank" rel="noopener noreferrer" class="btn-nav-line">💬 聯繫我們</a></li>
       <li><a href="https://www.surveycake.com/s/eneXa" target="_blank" rel="noopener noreferrer" class="btn-nav">立即報名</a></li>
+      <li><a href="https://line.me/R/ti/p/@618solmt" target="_blank" rel="noopener noreferrer" class="btn-nav-line">聯繫我們</a></li>
     </ul>
   </nav>
 
@@ -1810,7 +1821,6 @@
       <div class="fade-in">
         <div class="section-eyebrow">學習成果</div>
         <h2 class="section-title">學完你能做什麼？</h2>
-        <p class="section-desc">完成基礎班後，你將掌握的四大核心能力</p>
       </div>
       <div class="outcomes-grid">
         <div class="outcome fade-in d1">
@@ -1833,6 +1843,7 @@
       <div class="fade-in" style="text-align:center;margin-top:52px;">
         <p style="font-size:0.95rem;color:var(--text-muted);margin-bottom:20px;">準備好開始了嗎？</p>
         <a href="https://www.surveycake.com/s/eneXa" target="_blank" rel="noopener noreferrer" class="btn-primary" style="font-size:1rem;">立即報名基礎班 →</a>
+        <p style="font-size:0.82rem;color:var(--text-muted);text-align:center;margin:16px 0 0;letter-spacing:0.04em;">✦ 每梯次名額有限，額滿為止　｜　✦ 無需命理基礎</p>
       </div>
     </div>
   </section>
@@ -1843,8 +1854,7 @@
       <div class="trial-inner fade-in">
         <div class="section-eyebrow" style="justify-content:center;"><span style="display:block;width:36px;height:1px;background:var(--gold);"></span>免費試算<span style="display:block;width:36px;height:1px;background:var(--gold);"></span></div>
         <h2 class="section-title">立即試算你的<em>專屬命盤</em></h2>
-        <p style="font-size:0.82rem;color:var(--text-muted);text-align:center;margin:10px 0 4px;letter-spacing:0.04em;">✦ 每梯次名額有限，額滿為止　｜　✦ 無需命理基礎　｜　✦ 報名後由專人確認上課時間</p>
-        <p class="section-desc" style="max-width:100%;text-align:center;margin:16px auto 0;">填寫以下資訊，我們將在 <strong style="color:var(--gold-light);">7 個工作天內</strong>完成試算，並寄送你的<strong style="color:var(--gold-light);">專屬命盤分析報告</strong>至電子信箱。</p>
+        <p class="section-desc" style="max-width:100%;text-align:center;margin:16px auto 0;">填寫以下資訊，我們將在 <strong style="color:var(--gold-light);">7 個工作天內</strong>完成試算，<br>並寄送你的<strong style="color:var(--gold-light);">專屬命盤分析報告</strong>至電子信箱。</p>
         <form class="trial-form" id="trialForm" action="https://formspree.io/f/xgoppggz" method="POST">
           <div class="trial-field">
             <label class="trial-label" for="tf-name">姓名　<span style="font-family:'Noto Sans TC',sans-serif;font-size:0.78rem;font-weight:400;color:var(--text-muted);letter-spacing:0.02em;">以實歲 9 歲（含）前本名為準</span></label>
