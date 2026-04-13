@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="科技九宮命理基礎使用者班 — 用科學與邏輯認識自己，掌握人生主動權">
-  <title>科技九宮命理</title>
+  <meta name="description" content="科技九宮基礎使用者班 — 用科學與邏輯認識自己，掌握人生主動權">
+  <title>科技九宮</title>
+  <link rel="icon" type="image/png" href="LOGO/科技九宮logo.png">
+  <link rel="apple-touch-icon" href="LOGO/科技九宮logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -19,15 +21,21 @@
       --gold:          #c9a84c;
       --gold-light:    #e8c97a;
       --gold-dark:     #9a7520;
-      --gold-glow:     rgba(201, 168, 76, 0.35);
-      --navy:          #0c1521;
-      --navy-mid:      #111d2e;
-      --navy-light:    #172234;
-      --card-bg:       #1a2a3e;
-      --text-cream:    #f2ead8;
-      --text-muted:    #8a9bb0;
+      --gold-glow:     rgba(201, 168, 76, 0.22);
+      --navy:          #FDFCF6;
+      --navy-mid:      #F4F0E6;
+      --navy-light:    #EDE8DA;
+      --card-bg:       #FFFFFF;
+      --text-cream:    #1C150E;
+      --text-muted:    #7A6A58;
       --border-gold:   rgba(201, 168, 76, 0.22);
-      --border-strong: rgba(201, 168, 76, 0.55);
+      --border-strong: rgba(201, 168, 76, 0.50);
+    }
+
+    /* ── Hero 內部局部覆蓋，維持照片上的淺色文字 ── */
+    .hero {
+      --text-cream:  #F0E9D8;
+      --text-muted:  rgba(230, 220, 200, 0.82);
     }
 
     html { scroll-behavior: smooth; }
@@ -49,20 +57,24 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: rgba(12, 21, 33, 0.88);
+      background: rgba(253, 252, 246, 0.92);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border-gold);
+      box-shadow: 0 1px 12px rgba(201,168,76,0.08);
       transition: background 0.4s;
     }
-    .navbar.scrolled { background: rgba(12, 21, 33, 0.97); }
+    .navbar.scrolled { background: rgba(253, 252, 246, 0.98); }
     .navbar-logo {
       font-family: 'Noto Serif TC', serif;
-      font-size: 1.1rem;
+      font-size: 1.12rem;
       font-weight: 700;
       color: var(--gold);
       text-decoration: none;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.06em;
+      display: flex;
+      align-items: center;
+      gap: 9px;
     }
     .navbar-logo span { color: var(--text-cream); }
     .navbar-links {
@@ -72,7 +84,7 @@
       list-style: none;
     }
     .navbar-links a {
-      color: var(--text-muted);
+      color: #5A4A38;
       text-decoration: none;
       font-size: 0.88rem;
       letter-spacing: 0.06em;
@@ -92,19 +104,19 @@
       transform: translateY(-1px);
     }
     .btn-nav-trial {
-      color: var(--gold-light) !important;
+      color: var(--gold) !important;
       font-weight: 700 !important;
       font-size: 0.88rem;
       padding: 7px 18px !important;
       border-radius: 3px;
-      border: 1.5px solid rgba(201,168,76,0.6) !important;
+      border: 1.5px solid rgba(201,168,76,0.55) !important;
       background: rgba(201,168,76,0.08) !important;
       letter-spacing: 0.04em;
       animation: glowPulse 2.4s ease-in-out infinite;
       transition: background 0.2s, border-color 0.2s !important;
     }
     .btn-nav-trial:hover {
-      color: var(--gold-light) !important;
+      color: var(--gold) !important;
       background: rgba(201,168,76,0.18) !important;
       border-color: var(--gold) !important;
     }
@@ -144,9 +156,9 @@
       inset: 0;
       background: linear-gradient(
         to bottom,
-        rgba(12, 21, 33, 0.45) 0%,
-        rgba(12, 21, 33, 0.65) 45%,
-        rgba(12, 21, 33, 0.96) 100%
+        rgba(0, 0, 0, 0.30) 0%,
+        rgba(0, 0, 0, 0.52) 45%,
+        rgba(0, 0, 0, 0.88) 100%
       );
     }
     .hero-content {
@@ -246,7 +258,7 @@
       align-items: center;
       gap: 14px;
       color: var(--gold);
-      font-size: 0.76rem;
+      font-size: 0.92rem;
       letter-spacing: 0.28em;
       text-transform: uppercase;
       margin-bottom: 18px;
@@ -255,10 +267,11 @@
     .section-eyebrow::before {
       content: '';
       display: block;
-      width: 36px;
-      height: 1px;
-      background: var(--gold);
+      width: 24px;
+      height: 1.5px;
+      background: linear-gradient(to right, var(--gold-dark), var(--gold));
       flex-shrink: 0;
+      border-radius: 1px;
     }
     .section-title {
       font-family: 'Noto Serif TC', serif;
@@ -270,7 +283,7 @@
     }
     .section-title em {
       font-style: normal;
-      color: var(--gold-light);
+      color: var(--gold-dark);
     }
     .section-desc {
       font-size: 1rem;
@@ -284,10 +297,28 @@
       color: var(--text-cream);
     }
     .gold-line {
-      width: 52px;
-      height: 2px;
-      background: linear-gradient(to right, var(--gold), transparent);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      height: auto;
+      background: none;
       margin: 22px 0 32px;
+    }
+    .gold-line::before {
+      content: '';
+      display: block;
+      width: 44px;
+      height: 1.5px;
+      background: linear-gradient(to right, transparent, var(--gold));
+      border-radius: 1px;
+    }
+    .gold-line::after {
+      content: '◆';
+      color: var(--gold);
+      font-size: 0.42rem;
+      line-height: 1;
+      flex-shrink: 0;
     }
 
     /* ── ABOUT ── */
@@ -299,7 +330,7 @@
       right: -30px;
       font-size: 420px;
       font-family: 'Noto Serif TC', serif;
-      color: rgba(201, 168, 76, 0.03);
+      color: rgba(201, 168, 76, 0.06);
       line-height: 1;
       pointer-events: none;
       user-select: none;
@@ -358,20 +389,22 @@
     .feat-card {
       background: var(--card-bg);
       border: 1px solid var(--border-gold);
-      border-radius: 8px;
+      border-top: 2px solid var(--gold);
+      border-radius: 0 0 8px 8px;
       padding: 32px 22px;
-      transition: border-color 0.3s, transform 0.3s;
+      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
     }
     .feat-card:hover {
       border-color: var(--gold);
       transform: translateY(-5px);
+      box-shadow: 0 12px 40px rgba(201,168,76,0.12);
     }
     .feat-icon { font-size: 2.2rem; margin-bottom: 18px; display: block; }
     .feat-name {
       font-family: 'Noto Serif TC', serif;
       font-size: 1rem;
       font-weight: 700;
-      color: var(--gold-light);
+      color: var(--gold-dark);
       margin-bottom: 10px;
     }
     .feat-desc { font-size: 0.87rem; color: var(--text-muted); line-height: 1.85; }
@@ -410,8 +443,9 @@
     }
     .compare-table th:nth-child(3) {
       text-align: center;
-      color: var(--gold-light);
+      color: var(--gold);
       background: rgba(201, 168, 76, 0.07);
+      border-bottom: 2px solid var(--gold);
     }
     .compare-table td {
       padding: 18px 32px;
@@ -426,8 +460,8 @@
     }
     .compare-table td:nth-child(3) {
       text-align: center;
-      color: var(--gold-light);
-      background: rgba(201, 168, 76, 0.04);
+      color: var(--gold);
+      background: rgba(201, 168, 76, 0.03);
       font-weight: 600;
     }
 
@@ -469,7 +503,7 @@
       font-family: 'Noto Serif TC', serif;
       font-size: 1rem;
       font-weight: 700;
-      color: var(--gold-light);
+      color: var(--gold-dark);
       margin-bottom: 10px;
     }
     .module-desc { font-size: 0.87rem; color: var(--text-muted); line-height: 1.85; }
@@ -518,7 +552,7 @@
       font-family: 'Noto Serif TC', serif;
       font-size: 1rem;
       font-weight: 700;
-      color: var(--gold-light);
+      color: var(--gold-dark);
       margin-bottom: 8px;
     }
     .who-desc { font-size: 0.88rem; color: var(--text-muted); line-height: 1.85; }
@@ -590,7 +624,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--gold-light);
+      color: var(--gold-dark);
       font-size: 0.95rem;
       font-weight: 700;
     }
@@ -600,7 +634,7 @@
     .cta-section {
       position: relative;
       overflow: hidden;
-      background: linear-gradient(160deg, #0c1521 0%, #14202f 50%, #0c1521 100%);
+      background: linear-gradient(160deg, #F4F0E6 0%, #FDFCF6 50%, #F4F0E6 100%);
       padding: 110px 0;
     }
     .cta-section::before {
@@ -608,8 +642,8 @@
       position: absolute;
       inset: 0;
       background-image:
-        linear-gradient(rgba(201,168,76,0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(201,168,76,0.05) 1px, transparent 1px);
+        linear-gradient(rgba(201,168,76,0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,168,76,0.07) 1px, transparent 1px);
       background-size: 64px 64px;
       pointer-events: none;
     }
@@ -620,7 +654,7 @@
       transform: translate(-50%,-50%);
       width: 600px;
       height: 600px;
-      background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
       pointer-events: none;
     }
     .cta-inner {
@@ -683,7 +717,7 @@
       align-items: center;
       gap: 8px;
       background: linear-gradient(135deg, rgba(201,168,76,0.18), rgba(154,117,32,0.22));
-      color: var(--gold-light);
+      color: var(--gold-dark);
       font-size: 1rem;
       font-weight: 700;
       padding: 16px 38px;
@@ -710,7 +744,7 @@
       line-height: 2.4;
     }
     .cta-notes span {
-      color: var(--gold-light);
+      color: var(--gold-dark);
       font-family: 'Noto Serif TC', serif;
     }
 
@@ -736,13 +770,13 @@
     }
     .trial-label {
       font-size: 0.85rem;
-      color: var(--gold-light);
+      color: var(--gold-dark);
       font-family: 'Noto Serif TC', serif;
       letter-spacing: 0.06em;
     }
     .trial-input {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(201,168,76,0.3);
+      background: #FFFFFF;
+      border: 1px solid rgba(201, 168, 76, 0.30);
       border-radius: 8px;
       padding: 14px 18px;
       font-size: 0.97rem;
@@ -754,7 +788,7 @@
     }
     .trial-input:focus {
       border-color: var(--gold);
-      background: rgba(201,168,76,0.06);
+      background: rgba(201,168,76,0.05);
     }
     .trial-input::placeholder { color: var(--text-muted); }
     .trial-input[type="date"]::-webkit-calendar-picker-indicator {
@@ -798,13 +832,13 @@
       text-align: center;
       font-family: 'Noto Serif TC', serif;
       font-size: 1.05rem;
-      color: var(--gold-light);
+      color: var(--gold-dark);
       line-height: 1.9;
     }
 
     /* ── FOOTER ── */
     footer {
-      background: #070e18;
+      background: #EDE8DA;
       padding: 30px;
       text-align: center;
       border-top: 1px solid var(--border-gold);
@@ -867,8 +901,8 @@
       flex: 1;
     }
     .flow-field {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(201,168,76,0.3);
+      background: #FFFFFF;
+      border: 1px solid rgba(201, 168, 76, 0.30);
       border-radius: 8px;
       padding: 11px 18px;
       font-size: 0.95rem;
@@ -889,7 +923,7 @@
       border-radius: 10px;
       padding: 18px 16px;
       font-size: 1.1rem;
-      color: var(--gold-light);
+      color: var(--gold-dark);
       font-weight: 700;
       font-family: 'Noto Serif TC', serif;
       text-align: center;
@@ -927,7 +961,7 @@
       transition: background 0.3s;
     }
     .transform-card:last-child { border-right: none; }
-    .transform-card:hover { background: rgba(201,168,76,0.04); }
+    .transform-card:hover { background: rgba(201,168,76,0.05); }
     .transform-arrow {
       display: flex;
       align-items: center;
@@ -945,7 +979,7 @@
     .t-icon { color: var(--gold); font-size: 1rem; }
     .t-to {
       font-size: 0.88rem;
-      color: var(--gold-light);
+      color: var(--gold-dark);
       font-family: 'Noto Serif TC', serif;
       font-weight: 700;
       padding: 5px 13px;
@@ -973,8 +1007,8 @@
       position: absolute;
       inset: 0;
       background-image:
-        linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+        linear-gradient(rgba(201,168,76,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,168,76,0.05) 1px, transparent 1px);
       background-size: 52px 52px;
       pointer-events: none;
     }
@@ -999,19 +1033,19 @@
       padding: 52px 32px;
       border: 1px solid var(--border-gold);
       border-radius: 12px;
-      background: rgba(26,42,62,0.6);
+      background: #FFFFFF;
       transition: border-color 0.3s, background 0.3s, transform 0.3s;
     }
     .phil-card:hover {
       border-color: var(--gold);
-      background: rgba(201,168,76,0.05);
+      background: rgba(201,168,76,0.04);
       transform: translateY(-5px);
     }
     .phil-kanji {
       font-family: 'Noto Serif TC', serif;
       font-size: 3.6rem;
       font-weight: 700;
-      color: var(--gold-light);
+      color: var(--gold-dark);
       line-height: 1;
       margin-bottom: 8px;
       display: block;
@@ -1043,7 +1077,7 @@
       font-size: 1.12rem;
       font-weight: 700;
       font-style: italic;
-      color: var(--gold-light);
+      color: var(--gold-dark);
       line-height: 2;
       letter-spacing: 0.05em;
       max-width: 720px;
@@ -1091,7 +1125,7 @@
       font-family: 'Noto Serif TC', serif;
       font-size: 0.97rem;
       font-weight: 700;
-      color: var(--gold-light);
+      color: var(--gold-dark);
       margin-bottom: 4px;
     }
     .phil-method-text {
@@ -1105,7 +1139,7 @@
       font-family: 'Noto Serif TC', serif;
       font-size: 1.08rem;
       font-weight: 700;
-      color: var(--gold-light);
+      color: var(--gold-dark);
       padding: 20px 28px;
       background: rgba(201,168,76,0.07);
       border: 1px solid rgba(201,168,76,0.3);
@@ -1147,7 +1181,7 @@
       font-family: 'Noto Serif TC', serif;
       font-size: 1.15rem;
       font-weight: 700;
-      color: var(--gold-light);
+      color: var(--gold-dark);
       line-height: 1.9;
     }
     .pain-quote::before { content: '「'; }
@@ -1361,7 +1395,7 @@
       left: 0;
       right: 0;
       z-index: 999;
-      background: rgba(9, 15, 24, 0.97);
+      background: rgba(253, 252, 246, 0.97);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border-top: 1px solid var(--border-gold);
@@ -1389,7 +1423,7 @@
       align-items: center;
       justify-content: center;
       background: transparent;
-      color: var(--gold-light);
+      color: var(--gold-dark);
       font-size: 0.88rem;
       font-weight: 700;
       padding: 12px 10px;
@@ -1439,13 +1473,164 @@
       .hero-title { font-size: 1.75rem; }
       .testimonials-grid { grid-template-columns: 1fr; }
     }
+
+    /* ══════════════════════════════════════
+       UI 精緻化補充規則
+    ══════════════════════════════════════ */
+
+    /* 卡片全面加入暖色陰影 */
+    .feat-card,
+    .module,
+    .who-card,
+    .testimonial-card,
+    .outcome,
+    .pain-card {
+      box-shadow: 0 4px 28px rgba(201,168,76,0.07), 0 1px 6px rgba(201,168,76,0.04);
+    }
+    .phil-card {
+      box-shadow: 0 4px 28px rgba(201,168,76,0.07);
+    }
+
+    /* 居中區塊 section-title 下方裝飾線 */
+    .features-header .section-title,
+    .gallery-header .section-title,
+    .testimonials-header .section-title,
+    .faq-header .section-title,
+    .phil-header .section-title,
+    .pain-header .section-title {
+      padding-bottom: 20px;
+      position: relative;
+    }
+    .features-header .section-title::after,
+    .gallery-header .section-title::after,
+    .testimonials-header .section-title::after,
+    .faq-header .section-title::after,
+    .phil-header .section-title::after,
+    .pain-header .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 44px;
+      height: 1.5px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      border-radius: 1px;
+    }
+
+    /* 居中 section-eyebrow 對稱金線 */
+    .features-header .section-eyebrow::after,
+    .gallery-header .section-eyebrow::after,
+    .testimonials-header .section-eyebrow::after,
+    .faq-header .section-eyebrow::after,
+    .phil-header .section-eyebrow::after,
+    .pain-header .section-eyebrow::after {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1.5px;
+      background: linear-gradient(to left, var(--gold-dark), var(--gold));
+      flex-shrink: 0;
+      border-radius: 1px;
+    }
+
+    /* Hero badge 更傳統方形邊框 */
+    .hero-badge {
+      border-radius: 2px;
+      letter-spacing: 0.18em;
+      padding: 7px 26px;
+    }
+
+    /* Module 卡片 hover 增強 */
+    .module:hover {
+      box-shadow: 0 12px 40px rgba(201,168,76,0.14);
+    }
+
+    /* Who-card hover 增強 */
+    .who-card:hover {
+      background: rgba(201,168,76,0.05);
+      box-shadow: 0 8px 28px rgba(201,168,76,0.10);
+    }
+
+    /* Testimonial 引號字型優化 */
+    .testimonial-quote-icon {
+      color: var(--gold);
+      font-size: 3rem;
+      line-height: 0.85;
+      font-family: 'Noto Serif TC', serif;
+      font-weight: 700;
+    }
+
+    /* About img-wrap 裝飾邊框優化 */
+    .about-img-wrap::before {
+      border-radius: 4px 12px 4px 12px;
+      inset: -8px -8px 8px 8px;
+    }
+
+    /* Pain-card hover 增強 */
+    .pain-card:hover {
+      box-shadow: 0 12px 36px rgba(201,168,76,0.14);
+    }
+
+    /* Outcome 卡片 hover 增強 */
+    .outcome:hover {
+      border-color: var(--gold);
+      box-shadow: 0 8px 28px rgba(201,168,76,0.12);
+    }
+
+    /* FAQ 問題按鈕 hover 優化 */
+    .faq-question:hover {
+      background: rgba(201,168,76,0.05);
+      color: var(--gold);
+    }
+
+    /* 區塊之間的呼吸空間：section 間の裝飾性金色細線 */
+    section + section {
+      border-top: 1px solid var(--border-gold);
+    }
+
+    /* 底部浮動按鈕 ghost 版本文字顏色優化 */
+    .sticky-btn-ghost {
+      color: var(--gold);
+      border-color: var(--gold);
+    }
+
+    /* 課程照片 hover 增強 */
+    .course-photos img:hover {
+      box-shadow: 0 8px 32px rgba(201,168,76,0.14);
+    }
+
+    /* Pain footer 引言框 */
+    .pain-footer {
+      background: rgba(201,168,76,0.05);
+      border: 1px solid var(--border-strong);
+    }
+
+    /* About flow 框優化 */
+    .about-flow {
+      background: rgba(201,168,76,0.05);
+      border: 1px solid rgba(201,168,76,0.20);
+    }
+
+    /* 流程箭頭顏色統一 */
+    .about-flow-arrow { color: var(--gold); }
+
+    /* 流結果框 */
+    .flow-result {
+      background: linear-gradient(135deg, rgba(201,168,76,0.12), rgba(201,168,76,0.04));
+      border: 1px solid rgba(201,168,76,0.38);
+      color: var(--gold-dark);
+    }
   </style>
 </head>
 <body>
 
   <!-- NAVBAR -->
   <nav class="navbar" id="navbar">
-    <a href="#" class="navbar-logo">科技<span>九宮</span>命理</a>
+    <a href="#" class="navbar-logo">
+      <img src="LOGO/科技九宮logo.png" alt="科技九宮" height="36" style="display:block;object-fit:contain;">
+      科技<span>九宮</span>
+    </a>
     <ul class="navbar-links">
       <li><a href="#about">關於九宮</a></li>
       <li><a href="#course">課程大綱</a></li>
@@ -1453,7 +1638,7 @@
       <li><a href="#faq">常見問題</a></li>
       <li class="nav-sep" aria-hidden="true" style="margin-left:auto;"></li>
       <li><a href="#trial" class="btn-nav-trial">✨ 免費試算命盤</a></li>
-      <li><a href="https://www.surveycake.com/s/eneXa" target="_blank" rel="noopener noreferrer" class="btn-nav">立即報名</a></li>
+      <li><a href="https://disco-jaguar-101.notion.site/3400b8c42afb80289f4cc01450982eab" target="_blank" rel="noopener noreferrer" class="btn-nav">立即報名</a></li>
       <li><a href="https://line.me/R/ti/p/@618solmt" target="_blank" rel="noopener noreferrer" class="btn-nav-line">聯繫我們</a></li>
     </ul>
   </nav>
@@ -1469,7 +1654,7 @@
         因為你還沒看懂自己的<em>人生使用說明書</em>
       </h1>
       <p class="hero-sub">
-        告別盲目決策與玄學迷思，科技九宮命理透過科學與邏輯<br>幫你拆解天賦格局，讓每一次選擇都有數據支撐
+        告別盲目決策與玄學迷思，科技九宮透過科學與邏輯<br>幫你拆解天賦格局，讓每一次選擇都有數據支撐
       </p>
       <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
         <a href="#course" class="hero-cta">立即了解課程 →</a>
@@ -1517,7 +1702,7 @@
     <div class="container">
       <div class="about-grid">
         <div class="fade-in">
-          <div class="section-eyebrow">什麼是科技九宮命理</div>
+          <div class="section-eyebrow">什麼是科技九宮</div>
           <h2 class="section-title">千年傳承，<br><em>結合現代科學</em>重新解讀</h2>
           <div class="gold-line"></div>
           <div class="about-text">
@@ -1601,7 +1786,7 @@
             <tr>
               <th></th>
               <th>傳統命理</th>
-              <th><div class="compare-badge">現代人的最佳選擇 ✦</div><br>科技九宮命理</th>
+              <th><div class="compare-badge">現代人的最佳選擇 ✦</div><br>科技九宮</th>
             </tr>
           </thead>
           <tbody>
@@ -1636,7 +1821,7 @@
     <div class="container">
       <div class="fade-in">
         <div class="section-eyebrow">課程大綱</div>
-        <h2 class="section-title">《科技九宮命理》</h2>
+        <h2 class="section-title">《科技九宮》基礎班</h2>
         <p class="section-desc" style="white-space: nowrap; overflow: auto;">一套為現代人設計的命理入門系統，讓你從零開始，建立完整的自我命格圖。</p>
       </div>
       <div class="course-grid">
@@ -1842,7 +2027,7 @@
       </div>
       <div class="fade-in" style="text-align:center;margin-top:52px;">
         <p style="font-size:0.95rem;color:var(--text-muted);margin-bottom:20px;">準備好開始了嗎？</p>
-        <a href="https://www.surveycake.com/s/eneXa" target="_blank" rel="noopener noreferrer" class="btn-primary" style="font-size:1rem;">立即報名基礎班 →</a>
+        <a href="https://disco-jaguar-101.notion.site/3400b8c42afb80289f4cc01450982eab" target="_blank" rel="noopener noreferrer" class="btn-primary" style="font-size:1rem;">立即報名基礎班 →</a>
         <p style="font-size:0.82rem;color:var(--text-muted);text-align:center;margin:16px 0 0;letter-spacing:0.04em;">✦ 每梯次名額有限，額滿為止　｜　✦ 無需命理基礎</p>
       </div>
     </div>
@@ -1872,7 +2057,7 @@
         </form>
         <div class="trial-success" id="trialSuccess">
           ✦ 申請已送出！<br>我們將在 7 個工作天內完成試算，並以電子信箱寄送你的專屬命盤分析報告。<br><br>
-          <a href="https://www.surveycake.com/s/eneXa" target="_blank" rel="noopener noreferrer" class="btn-primary" style="font-size:0.95rem;padding:13px 32px;margin-top:8px;display:inline-flex;">想自己學會解讀命盤？立即報名課程 →</a>
+          <a href="https://disco-jaguar-101.notion.site/3400b8c42afb80289f4cc01450982eab" target="_blank" rel="noopener noreferrer" class="btn-primary" style="font-size:0.95rem;padding:13px 32px;margin-top:8px;display:inline-flex;">想自己學會解讀命盤？立即報名課程 →</a>
           <a href="https://line.me/R/ti/p/@618solmt" target="_blank" rel="noopener noreferrer" class="btn-line-contact" style="margin-top:12px;">💬 LINE 聯繫我們，了解更多</a>
         </div>
         <p class="trial-note">📌 資料僅用於命盤試算，不會外洩或轉作他用</p>
@@ -1921,7 +2106,7 @@
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            <div class="faq-answer-inner">科技九宮命理以九宮學理為核心，搭配現代程式系統輔助推算。相較於八字或紫微，學習門檻更低、邏輯更直觀，且強調「應用」而非「算命」，幫助你主動做出更好的決策。</div>
+            <div class="faq-answer-inner">科技九宮以九宮學理為核心，搭配現代程式系統輔助推算。相較於八字或紫微，學習門檻更低、邏輯更直觀，且強調「應用」而非「算命」，幫助你主動做出更好的決策。</div>
           </div>
         </div>
         <div class="faq-item fade-in d2">
@@ -1944,7 +2129,7 @@
   <!-- FOOTER -->
   <footer>
     <p style="margin-bottom:10px;">有任何問題？歡迎透過 <a href="https://line.me/R/ti/p/@618solmt" style="color:var(--gold-light);text-decoration:none;" target="_blank" rel="noopener noreferrer">LINE 官方帳號</a> 與我們聯繫</p>
-    <p>Copyright © 2026 科技九宮命理. All Rights Reserved.　｜　運用現代程式，解鎖古老智慧，掌握個人運勢</p>
+    <p>Copyright © 2026 科技九宮. All Rights Reserved.　｜　運用現代程式，解鎖古老智慧，掌握個人運勢</p>
   </footer>
 
   <script>
@@ -2014,7 +2199,7 @@
   <!-- STICKY MOBILE CTA BAR -->
   <div class="sticky-cta-bar" id="stickyCta">
     <a href="#trial" class="sticky-btn-ghost">免費試算命盤</a>
-    <a href="https://www.surveycake.com/s/eneXa" target="_blank" rel="noopener noreferrer" class="sticky-btn-primary">立即報名課程 →</a>
+    <a href="https://disco-jaguar-101.notion.site/3400b8c42afb80289f4cc01450982eab" target="_blank" rel="noopener noreferrer" class="sticky-btn-primary">立即報名課程 →</a>
   </div>
 
 </body>
